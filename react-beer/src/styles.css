@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&family=Nunito:wght@300;400;700&display=swap');
+
+body {
+  width: 1440px;
+  height: 1024px;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+* {
+  font-family: 'Nunito', sans-serif;
+}
+
+*:focus {
+  outline: none;
+}
+
+.background-images {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.heart-bottle {
+  position: absolute;
+  width: 283px;
+  height: auto;
+  left: calc(50% - 460px);
+  top: calc(50% - 345px);
+  z-index: -1;
+}
+
+.bubblz {
+  position: absolute;
+  width: 64px;
+  height: auto;
+  left: calc(50% - -150px);
+  top: calc(50% - 315px);
+  z-index: -1;
+}
+
+.cap {
+  position: absolute;
+  width: 101px;
+  height: auto;
+  left: calc(50% - -250px);
+  top: calc(50% - -150px);
+  z-index: -1;
+  transform: rotate(-50deg);
+}
+
+.cap2 {
+  position: absolute;
+  width: 137px;
+  height: auto;
+  left: calc(50% - -120px);
+  top: calc(50% - -185px);
+  z-index: -1;
+  transform: rotate(25deg);
+}
+
+.form-toggle {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.form-toggle button {
+  position: relative;
+  padding: 10px 97px;
+  background-color: #26547c;
+  margin-bottom: 15px;
+  margin-top: -15px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+.form-toggle button::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background-color: #ffffff;
+  opacity: 0;
+  transform-origin: center;
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.form-toggle button.active::before {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/* .form-toggle button.active {
+  background-color: white;
+  color: #26547c;
+  box-shadow: 10px 5px 20px rgba(0, 0, 0, 0.5);
+} */
+
+.registration-container {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.login-window {
+  background-color: #26547c;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 10px 5px 10px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  color: white;
+  width: 564px;
+  height: 299px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: height 0.4s ease-in-out;
+}
+
+.second-form-active {
+  background-color: #26547c;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 10px 5px 10px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  color: white;
+  width: 564px;
+  height: 380px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.registration-window h2 {
+  margin-top: 0;
+}
+
+.input-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 17px;
+}
+
+.input-group input {
+  width: 482px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 10px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.second-form-active .input-group:nth-of-type(3) {
+  animation: fadeIn 0.5s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.custom-button {
+  box-shadow: 10px 5px 10px rgba(0, 0, 0, 0.5);
+  background-color: white;
+  color: #26547c;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  width: 160px;
+  height: 57px;
+  animation: fadeIn 0.5s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.custom-button img {
+  margin: 0 20px;
+  vertical-align: middle;
+  transition: transform 0.3s ease;
+}
+
+.custom-button img:last-child {
+  margin-right: 10px;
+}
+
+.custom-button:hover img:first-child {
+  transform: translateX(20px);
+}
+
+.custom-button:hover img:last-child {
+  transform: translateX(-20px);
+}
+
+.custom-button:active img:first-child {
+  transform: translateY(6px) translateX(28px) rotate(20deg);
+}
+
+.custom-button:active img:last-child {
+  transform: translateY(-6px) translateX(-28px) rotate(-20deg);
+}
