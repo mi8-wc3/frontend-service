@@ -66,6 +66,51 @@ body {
   transform: rotate(25deg);
 }
 
+.form-toggle {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.form-toggle button {
+  position: relative;
+  padding: 10px 97px;
+  background-color: #26547c;
+  margin-bottom: 15px;
+  margin-top: -15px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+.form-toggle button::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background-color: #ffffff;
+  opacity: 0;
+  transform-origin: center;
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.form-toggle button.active::before {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/* .form-toggle button.active {
+  background-color: white;
+  color: #26547c;
+  box-shadow: 10px 5px 20px rgba(0, 0, 0, 0.5);
+} */
+
 .registration-container {
   position: fixed;
   display: flex;
@@ -75,7 +120,7 @@ body {
   height: 100%;
 }
 
-.registration-window {
+.login-window {
   background-color: #26547c;
   padding: 20px;
   border-radius: 10px;
@@ -84,6 +129,25 @@ body {
   color: white;
   width: 564px;
   height: 299px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: height 0.4s ease-in-out;
+}
+
+.second-form-active {
+  background-color: #26547c;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 10px 5px 10px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  color: white;
+  width: 564px;
+  height: 380px;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -116,6 +180,22 @@ body {
   box-shadow: 10px 5px 10px rgba(0, 0, 0, 0.5);
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.second-form-active .input-group:nth-of-type(3) {
+  animation: fadeIn 0.5s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
 .custom-button {
   box-shadow: 10px 5px 10px rgba(0, 0, 0, 0.5);
   background-color: white;
@@ -126,6 +206,8 @@ body {
   margin-top: 20px;
   width: 160px;
   height: 57px;
+  animation: fadeIn 0.5s ease-in-out;
+  animation-fill-mode: forwards;
 }
 
 .custom-button img {
