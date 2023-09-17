@@ -18,10 +18,10 @@ const RegistrationForm = () => {
   const handleUsernameChange = (event) => {
     setUsername(event.target.value)
   }
-
-  const handleFormToggle = () => {
-    setIsFirstFormActive(!isFirstFormActive)
-  }
+  //
+  // const handleFormToggle = () => {
+  //   setIsFirstFormActive(!isFirstFormActive)
+  // }
 
   const handleSubmit = async (event) => {
     event.preventDefault();
