@@ -23,13 +23,34 @@ const RegistrationForm = () => {
     setIsFirstFormActive(!isFirstFormActive)
   }
 
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    // Здесь нужно добавить логику отправки данных на сервер
-    console.log('Email:', email)
-    console.log('Password:', password)
-    console.log('Username:', username)
-  }
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const data = `username=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`;
+
+    try {
+      const response = await fetch('http://localhost:8080/login', {
+        method: 'POST',
+        mode: "no-cors",
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Referer': 'http://localhost:8080/swagger-ui.html',
+        },
+        body: data,
+      });
+
+      if (response.ok) {
+        console.log('Аутентификация успешно выполнена');
+        // Добавьте здесь логику для перенаправления пользователя после успешной аутентификации
+      } else {
+        console.error('Ошибка при аутентификации');
+        // Добавьте здесь обработку ошибки аутентификации, например, отображение сообщения об ошибке
+      }
+    } catch (error) {
+      console.error('Ошибка при отправке запроса:', error);
+      // Добавьте здесь обработку других ошибок, возникающих при отправке запроса
+    }
+  };
 
   return (
     <div className="registration-container">
@@ -67,7 +88,7 @@ const RegistrationForm = () => {
             <div className="input-group">
               <label htmlFor="email">Email:</label>
               <input
-                type="email"
+                type="text"
                 id="email"
                 value={email}
                 onChange={handleEmailChange}
